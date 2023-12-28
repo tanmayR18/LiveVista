@@ -12,7 +12,7 @@ import LiveBadge from "@/components/live-bage"
 interface UserItemProps {
     username: string,
     imageUrl: string,
-    isLive: boolean
+    isLive?: boolean
 }
 
 export const UserItem = ({
