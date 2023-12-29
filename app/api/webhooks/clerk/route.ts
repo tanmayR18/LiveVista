@@ -3,6 +3,7 @@ import { headers } from 'next/headers'
 import { WebhookEvent } from '@clerk/nextjs/server'
 import { db } from '@/lib/db'
 
+
 export async function POST(req: Request) {
 
     // You can find this in the Clerk Dashboard -> Webhooks -> choose the webhook
@@ -60,7 +61,12 @@ export async function POST(req: Request) {
             data: {
                 externalUserId: payload.data.id,
                 username: payload.data.username,
-                imageUrl: payload.data.image_url
+                imageUrl: payload.data.image_url,
+                stream: {
+                    create:{
+                        name: `${payload.data.username}'s`
+                    }
+                }
             }
         })
     }
