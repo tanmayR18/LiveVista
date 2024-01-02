@@ -21,9 +21,9 @@ const KeysPage = async () => {
                     Keys & URLs
                 </h1>
                 <ConnectModal />
-                <Button variant={"primary"}>
+                {/* <Button variant={"primary"}>
                     Geneate
-                </Button>
+                </Button> */}
             </div>
             <div className=" space-y-4">
                 <UrlCard value={stream.serverUrl} />
