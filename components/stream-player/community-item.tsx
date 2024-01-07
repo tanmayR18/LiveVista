@@ -28,7 +28,7 @@ export const CommunityItem = ({
     const [isPending, startTransition] = useTransition()
 
     const handleBlock = () => {
-        if(!participantName || isSelf || isHost) return
+        if(!participantName || isSelf || !isHost) return
         startTransition(() => {
             onBlock(participantIdentity)
                 .then(() => toast.success(`Blocked ${participantName}`))
@@ -46,7 +46,7 @@ export const CommunityItem = ({
         <p className="" style={{color: color}}>
             {participantName}
         </p>
-        { isHost || !isSelf && (
+        { isHost && !isSelf && (
             <Hint label="Block">
                 <Button
                 variant={"ghost"}

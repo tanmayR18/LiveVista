@@ -24,6 +24,7 @@ export const Chat = ({
     hostName,
     viewerName,
     hostIdentity,
+    isFollowing,
     isChatDelayed,
     isChatEnabled,
     isChatFollowersOnly
@@ -79,7 +80,7 @@ export const Chat = ({
                         isHidden = {isHidden}
                         isFollowersOnly = {isChatFollowersOnly}
                         isDelayed = {isChatDelayed}
-                        isFollowing = {isChatDelayed}
+                        isFollowing = {isFollowing}
                     />
                 </>
             )}
