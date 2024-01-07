@@ -22,7 +22,6 @@ export const AboutCard = ({
     const hostAsViewer = `host-${hostIdentity}`
     const isHost = viewerIdentity === hostAsViewer
     const followedByLabel = followedByCount === 1 ? "follower" : "followers"
-    console.log("follower count",followedByCount)
   return (
     <div className=" px-4">
         <div className=" group rounded-xl bg-background p-6 lg:p-10 flex flex-col gap-y-3">

@@ -87,9 +87,12 @@ export const unBlockUser = async(id: string) => {
         throw new Error("Cannot Unblock yourself")
     }
 
+    console.log("ID => ",id)
     const otherUser = await db.user.findUnique({
         where: {id}
     })
+
+    console.log("Other user =>", otherUser)
 
     if(!otherUser){
         throw new Error("User not found")
@@ -119,3 +122,19 @@ export const unBlockUser = async(id: string) => {
 
     return unblock
 }
+
+export const getBlockedUsers = async () => {
+    const self = await getSelf()
+
+    const blockedUsers = await db.block.findMany({
+        where: {
+            blockerId: self.id
+        },
+        include: {
+            blocked: true
+        }
+    })
+
+    return blockedUsers
+}
+
